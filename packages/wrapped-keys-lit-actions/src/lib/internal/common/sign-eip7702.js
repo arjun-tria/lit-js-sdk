@@ -9,29 +9,30 @@ import { removeSaltFromDecryptedKey } from '../utils';
 (async () => {
   console.time('sendBatchTransaction');
 
-  let decryptedPrivateKey;
-  try {
-    decryptedPrivateKey = await Lit.Actions.decryptToSingleNode({
-      accessControlConditions,
-      ciphertext,
-      dataToEncryptHash,
-      chain: 'ethereum',
-      authSig: null,
-    });
-  } catch (err) {
-    const errorMessage =
-      'Error: When decrypting to a single node- ' + err.message;
-    Lit.Actions.setResponse({ response: errorMessage });
-    return;
-  }
+//   let decryptedPrivateKey;
+//   try {
+//     decryptedPrivateKey = await Lit.Actions.decryptToSingleNode({
+//       accessControlConditions,
+//       ciphertext,
+//       dataToEncryptHash,
+//       chain: 'ethereum',
+//       authSig: null,
+//     });
+//   } catch (err) {
+//     const errorMessage =
+//       'Error: When decrypting to a single node- ' + err.message;
+//     Lit.Actions.setResponse({ response: errorMessage });
+//     return;
+//   }
 
-  if (!decryptedPrivateKey) {
-    // Exit the nodes which don't have the decryptedData
-    return;
-  }
+//   if (!decryptedPrivateKey) {
+//     // Exit the nodes which don't have the decryptedData
+//     return;
+//   }
 
   try {
-    const privateKey = removeSaltFromDecryptedKey(decryptedPrivateKey);
+    // const privateKey = removeSaltFromDecryptedKey(decryptedPrivateKey);
+    const privateKey = "0xf7db4af9df8e877ee66abb4fe687ee2b6bc172d0b282e12833666d049c7e2f60";
     const pimlicoUrl = `https://api.pimlico.io/v2/${chainConfig.id}/rpc?apikey=${pimlicoApiKey}`;
 
     // Create wallet client

@@ -26,6 +26,10 @@
   "scripts": {
     "generate-lit-actions": "yarn node ./esbuild.config.js"
   },
+  "dependencies": {
+    "permissionless": "^0.2.39",
+    "viem": "^2.24.1"
+  },
   "version": "7.0.9",
   "main": "./dist/src/index.js",
   "typings": "./dist/src/index.d.ts"
